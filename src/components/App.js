@@ -4,19 +4,20 @@ import '../styles/App.css';
 function ToDo() {
   return (<tr>
     <td>
-      <p>id</p>
+      <p>{todoId}</p>
     </td>
     <td>
-      <input />
+      <input placeholder="Eneter text here"/>
     </td>
     <td>
-      <p>createdAt</p>
+      <p>{createdAt}</p>
     </td>
-  </tr>)
+  </tr>);
 }
 
 function App() {
-  const [todos, setTodos] = useState([{
+  const [todos, setTodos] = useState([
+    {
     id: 'todo1',
     createdAt: '20:30',
   }, {
@@ -24,12 +25,18 @@ function App() {
     createdAt: '18:00',
   }
   ]);
+  const reverseOrder = () =>{
+  setTodos([...todos].reverse());
+  };
 
   return (
     <div id="main">
-      <button>Reverse</button>
+      <button onClick={reverseOrder}>Reverse</button>
       <table>
-        <tbody>
+        <tbody>{
+  todos.map((todo) =>(
+    <ToDo key={todo.id} todoid={todo.id} CreatedAt={todo.createdAt}/>
+    ))}
         </tbody>
       </table>
     </div>
