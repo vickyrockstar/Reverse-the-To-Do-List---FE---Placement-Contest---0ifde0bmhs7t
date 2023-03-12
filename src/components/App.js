@@ -35,7 +35,7 @@ function App() {
       <table>
         <tbody>{
   todos.map((todo) =>(
-    <ToDo key={todo.id} todoid={todo.id} CreatedAt={todo.createdAt}/>
+    <ToDo key={todo.id} todoId={todo.id} CreatedAt={todo.createdAt}/>
     ))}
         </tbody>
       </table>
